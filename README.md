@@ -56,3 +56,28 @@ Relationship with Atlas
 - Documents may contain different fields, and fields may contain different types
 - if we want to have a new field, just simply update the document with new field
 - we can have optional schema validation as well, to set constraints on the structure of documents
+
+# Data Modeling
+- Data Modeling is the process of defining how data is stored and relationship that is among different entities
+- When modeling, we can ask some questions:
+1. What does my application do?
+2. What data will I store?
+3. How will users access this data?
+4. What data will be most valuable to me?
+
+- By asking these questions, you will know:
+1. your tasks as well as those users
+2. What your data looks like
+3. The relationships among the data
+4. The tooling you plan to have
+5. The access patterns that might emerge
+
+- Having a good data model can:
+1. Make it easier to manage data
+2. Make queries more efficient
+3. Use less memories and CPU
+4. reduce costs
+
+Principle of MongoDB:
+1. Data that is accessed together should be stored together
+2. But, we can also normalize our data by using database references
