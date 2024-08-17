@@ -92,3 +92,7 @@ Principle of MongoDB:
 2. referencing
 
 - in general, we should structure our data to match the ways that our application queries and updates it
+
+<div align="center">
+  <img src="./relationships.png" alt="relationships" width="200">
+</div>
