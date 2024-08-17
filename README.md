@@ -81,3 +81,14 @@ Relationship with Atlas
 Principle of MongoDB:
 1. Data that is accessed together should be stored together
 2. But, we can also normalize our data by using database references
+
+# Types of data relationships in mongodb
+1. One-to-One
+2. One-to-many
+3. Many-to-many
+
+## Ways to model relationships
+1. embedding
+2. referencing
+
+- in general, we should structure our data to match the ways that our application queries and updates it
