@@ -96,3 +96,18 @@ Principle of MongoDB:
 <div align="center">
   <img src="./relationships.png" alt="relationships" width="200">
 </div>
+
+# Scaling Data Model
+Optimum efficiency of:
+1. query result times
+2. memory usage
+3. cpu usage
+4. storage
+
+Firstly, we need to avoid unbounded documents where docuements that grow infinitely
+
+Problems as infinite array (posts that have infinity comments):
+1. It will takes up more space in memory
+2. may impact write performance
+3. difficult to perform pagination of comments
+4. maximum document size of 16MB will lead to storage problems
