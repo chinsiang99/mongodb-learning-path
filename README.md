@@ -47,3 +47,12 @@ Permissions: "readWriteAnyDatabase"
 
 Relationship with Atlas
 - The MongoDB Database is at the core of Atlas
+
+# MongoDB Document Model
+- the data is displayed in JSON but actualy it is stored in BSON (which is extension of JSON)
+- BSON (Binary JSON) is a binary representation of JSON-like documents. It's used primarily by MongoDB to store and transfer data in a way that's both efficient and flexible. BSON extends the JSON data model to provide **additional data types**, such as int, long, date, floating point, and binary, that are not available in standard JSON.
+- Every document requires an _id field, which act as a primary key
+- If an inserted document doesn't include the _id field, MongoDB automatically generates an ObjectId for the _id field
+- Documents may contain different fields, and fields may contain different types
+- if we want to have a new field, just simply update the document with new field
+- we can have optional schema validation as well, to set constraints on the structure of documents
