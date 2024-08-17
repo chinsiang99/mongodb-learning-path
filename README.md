@@ -111,3 +111,15 @@ Problems as infinite array (posts that have infinity comments):
 2. may impact write performance
 3. difficult to perform pagination of comments
 4. maximum document size of 16MB will lead to storage problems
+
+# Schema anti-patterns problem
+1. Sub-optimal performance
+2. Non-scalable solutions
+
+## Common Schema anti-patterns
+1. Massive arrays
+2. Massive number of collections
+3. bloated documents
+4. unnecessary indexes
+5. queries without indexes
+6. data that accessed together but stored in different collections
