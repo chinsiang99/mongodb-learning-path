@@ -132,3 +132,19 @@ MongoDB provides two formats for the connection string:
     - provides a DNS server list to our connection string
     - gives more flexibility of deployment
     - ability to change servers in rotation without reconfiguring clients
+
+# MongoDB CRUD Operations: Insert and Find Operations
+
+## Inserting documents
+1. insertOne()
+> db.<collection>.insertOne()
+- note that if the collection does not exist, it will automatically create the collection for you
+2. insertMany() 
+```bash
+db.<collection>.insertMany([
+    <document1>,
+    <document2>,
+    <document3>,
+])
+```
+
