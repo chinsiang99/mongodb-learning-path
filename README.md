@@ -148,3 +148,64 @@ db.<collection>.insertMany([
 ])
 ```
 
+## Finding documents
+1. find()
+> db.<collection>.find()
+2. in()
+- $in operator allows us to select all documents that have a field value equal to any of the values specified in the array
+> db.<collection>.find({city: {$in: ["PHOENIX", "CHICAGO"]}})
+
+## Finding documents using Comparison operators
+1. $gt (greater than)
+2. $lt (lesser than)
+3. $gte (greater or equal)
+4. $lte (lesser or equal)
+
+## Querying Arrays in documents
+1. $elemMatch
+- note that this is to match if there is only array (array searching only)
+
+Find Documents with an Array That Contains a Specified Value
+In the following example, "InvestmentFund" is not enclosed in square brackets, so MongoDB returns all documents within the products array that contain the specified value.
+
+> db.accounts.find({ products: "InvestmentFund"})
+
+Find a Document by Using the $elemMatch Operator
+Use the $elemMatch operator to find all documents that contain the specified subdocument. For example:
+
+```bash
+db.sales.find({
+  items: {
+    $elemMatch: { name: "laptop", price: { $gt: 800 }, quantity: { $gte: 1 } },
+  },
+})
+```
+
+if only want array being mapped
+> db.accounts.find({products: {$elemMatch: {$eq: "InvestmentStock"}}})
+
+## Finding documents by using logical operators
+1. $and
+2. $or
+
+Find a Document by Using Implicit $and
+Use implicit $and to select documents that match multiple expressions. For example:
+
+>db.routes.find({ "airline.name": "Southwest Airlines", stops: { $gte: 1 } })
+Find a Document by Using the $or Operator
+Use the $or operator to select documents that match at least one of the included expressions. For example:
+```bash
+db.routes.find({
+  $or: [{ dst_airport: "SEA" }, { src_airport: "SEA" }],
+})
+```
+Find a Document by Using the $and Operator
+Use the $and operator to use multiple $or expressions in your query.
+```bash
+db.routes.find({
+  $and: [
+    { $or: [{ dst_airport: "SEA" }, { src_airport: "SEA" }] },
+    { $or: [{ "airline.name": "American Airlines" }, { airplane: 320 }] },
+  ]
+})
+```
