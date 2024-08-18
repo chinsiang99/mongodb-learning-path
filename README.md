@@ -455,3 +455,10 @@ db.trips.countDocuments({})
 // Count number of trips over 120 minutes by subscribers
 db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
 ```
+
+# Working with MongoDB Documents in Node.js
+
+## BSON
+- optimized for storage, retrieval, and transmission across the wire
+- more secure than plain text JSON
+- more data types than JSON
