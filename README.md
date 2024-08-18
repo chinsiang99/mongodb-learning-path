@@ -123,3 +123,12 @@ Problems as infinite array (posts that have infinity comments):
 4. unnecessary indexes
 5. queries without indexes
 6. data that accessed together but stored in different collections
+
+# Connecting to a MongoDB Database
+MongoDB provides two formats for the connection string:
+1. Standard format
+    - used to connect to standalone clusters, replica sets, or sharded clusters
+2. DNS seed list format
+    - provides a DNS server list to our connection string
+    - gives more flexibility of deployment
+    - ability to change servers in rotation without reconfiguring clients
