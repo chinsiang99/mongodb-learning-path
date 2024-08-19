@@ -462,3 +462,40 @@ db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
 - optimized for storage, retrieval, and transmission across the wire
 - more secure than plain text JSON
 - more data types than JSON
+
+# MongoDB Aggregation
+
+Aggregarion
+- An analysis and summary of data
+
+Stage
+- An aggregation operation performed on the data
+- A single operation on the data
+
+Aggregation Pipeline
+- a series of stages completed one at a time, in order
+
+Pipeline
+- A pipeline is where the data can be filtered, sorted, grouped or even transformed
+
+Structure of an Aggregation Pipeline
+```bash
+db.collection.aggregate([
+    {
+        $stage1: {
+            { expression1 },
+            { expression2 }...
+        },
+        $stage2: {
+            { expression1 }...
+        }
+    }
+])
+```
+
+```bash
+db.collection.aggregate([
+  {$stage_name: {<expression>}},
+  {$stage_name: {<expression>}}
+])
+```
