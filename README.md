@@ -555,3 +555,36 @@ db.zips.aggregate([
   }
 ])
 ```
+
+## Using $sort and $limit Stages in a MongoDB Aggregation Pipeline
+
+$sort
+- sorts all input documents and passes them through pipeline in sorted order
+
+```bash
+db.zips.aggregate([
+  {
+    $sort: {
+      pop: -1
+    }
+  }
+])
+```
+
+$limit
+- limits the number of documents that are passed on to the next aggragation stage
+
+```bash
+db.zips.aggregate([
+  {
+    $sort: {
+      pop: -1
+    }
+  },
+  {
+    $limit: 3
+  }
+])
+```
+
+Please note that **the order of stages matters**
