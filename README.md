@@ -499,3 +499,59 @@ db.collection.aggregate([
   {$stage_name: {<expression>}}
 ])
 ```
+
+## Using $match and $group Stages in a MongoDB Aggregation Pipeline
+
+$match
+- filter for documents matching criteria
+- we can place as early as possible in the pipeline so it can use indexes
+- reduces the number of documents
+- lessens processing required
+```bash
+db.zips.aggregate([
+  {
+    $match: {"state": "CA"}
+  }
+])
+```
+
+$group
+- create a single document for each distinct value
+- it groups documents by a group key
+
+expression:
+```bash
+{
+  $group: {
+    _id: <expression>, //group key
+    <field>: {<accumulator>: <expression>}
+  }
+}
+```
+
+example:
+```bash
+{
+  $group: {
+    _id: "$city",
+    totalZips: {$count: {}}
+  }
+}
+```
+
+aggragation pipeline with $match and $group:
+```bash
+db.zips.aggregate([
+  {
+    $match: {
+      "state": "CA"
+    }
+  },
+  {
+    $group: {
+      _id: "$city",
+      totalZips: { $count: {} }
+    }
+  }
+])
+```
