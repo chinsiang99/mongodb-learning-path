@@ -868,3 +868,43 @@ db.customers.explain().find({
     name:1
     })
 ```
+
+# Deleting MongoDB Indexes
+- make sure that the index is not being used
+- deleting an index that's the only index supporting a query will affect the performance of the query
+- recreating an index takes time and resource
+- hide the index before deleting it
+- db.collection.hideIndex(<index>)
+
+View the Indexes used in a Collection
+Use getIndexes() to see all the indexes created in a collection. There is always a default index in every collection on _id field. This index is used by MongoDB internally and cannot be deleted.
+
+> db.customers.getIndexes()
+
+Delete an Index
+Use dropIndex() to delete an existing index from a collection. Within the parentheses of dropIndex(), include an object representing the index key or provide the index name as a string.
+
+Delete index by name:
+```bash
+db.customers.dropIndex(
+  'active_1_birthdate_-1_name_1'
+)
+```
+Delete index by key:
+```bash
+db.customers.dropIndex({
+  active:1,
+  birthdate:-1, 
+  name:1
+})
+```
+Delete Indexes
+Use dropIndexes() to delete all the indexes from a collection, with the exception of the default index on _id.
+
+> db.customers.dropIndexes()
+The dropIndexes() command also can accept an array of index names as a parameter to delete a specific list of indexes.
+```bash
+db.collection.dropIndexes([
+  'index1name', 'index2name', 'index3name'
+  ])
+```
