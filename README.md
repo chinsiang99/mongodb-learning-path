@@ -644,3 +644,25 @@ db.sightings.aggregate([
   }
 ])
 ```
+
+## Using the $out Stage in a MongoDB Aggregation Pipeline
+- it writes the documents that are returned by an aggregation pipeline into a collection
+- it must be the last stage
+- it create a new colleciton if it does not already exist
+- if the colleciton exists, the $out replaces the existing collection with new data
+
+```bash
+db.sightings.aggregate([
+  {
+    $match: {
+      date: {
+        $gte: ISODate('2022-01-01T00:00:00.0Z'),
+        $lt: ISODate('2023-01-01T00:00:00.0Z')
+      }
+    }
+  },
+  {
+    $out: 'sightings_2022'
+  }
+])
+```
