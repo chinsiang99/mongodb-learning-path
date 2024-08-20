@@ -666,3 +666,32 @@ db.sightings.aggregate([
   }
 ])
 ```
+
+# Using MongoDB Indexes in Collections
+- What indexes are
+- How indexes can improve performance
+- Costs of using indexes
+- most common index types
+
+## What are indexes?
+- special data structures
+- store smallportion of the data
+- ordered and easy to search efficiently
+
+## Indexes can imporve performance
+- speed up queries
+- reduce disk I/O
+- reduce resources required
+- support equality matches and range-based operations and return sorted results
+
+Without indexes
+- MongoDB reads all documents (collection scan)
+- sort results in memory
+
+With indexes
+- MongoDB only fetches the documents identified by the index based on the query
+- return results faster
+
+## Most common index types
+- single field
+- compound
